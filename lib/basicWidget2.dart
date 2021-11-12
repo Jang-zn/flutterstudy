@@ -41,7 +41,7 @@ class _BasicAppHomeState extends State<BasicAppHome> {
               height : constraints.maxHeight,
               width : constraints.maxWidth,
               color : Colors.greenAccent,
-              child : Column(
+              child : Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround, //세로배치
                 crossAxisAlignment: CrossAxisAlignment.center, //가로배치
                 children : <Widget>[
