@@ -36,6 +36,8 @@ class _BasicHomepage1State extends State<BasicHomepage1> {
     return Scaffold(
         body : Container(
           alignment: Alignment.center,
+          width : 100,
+          height : 100,
           color : Colors.yellow,
           child : Text('22')
       )
