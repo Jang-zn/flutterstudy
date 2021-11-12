@@ -34,8 +34,10 @@ class _BasicHomepage1State extends State<BasicHomepage1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body : Container(
-        color : Colors.yellow,
+        body : Container(
+          alignment: Alignment.center,
+          color : Colors.yellow,
+          child : Text('22')
       )
     );
   }
