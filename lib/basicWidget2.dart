@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+
+int count=0;
+
 void main() {
   runApp(basicApp());
 }
@@ -46,10 +49,26 @@ class _BasicAppHomeState extends State<BasicAppHome> {
   int _index=0;
   Color _color = Colors.white;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar : EmptyAppBar(),
+      appBar : AppBar(
+        title : Text(widget.title)
+      ),
+      floatingActionButton: FloatingActionButton(
+        child : Icon(Icons.add),
+        onPressed: (){
+          Navigator.of(context).push(
+          MaterialPageRoute(
+    builder : (ctx){
+      count++;
+      return BasicAppHome(title : "new$count",);
+    }
+    )
+          );
+    },
+      ),
       body: LayoutBuilder(builder: (context, constraints) {
         return Container(
             height: constraints.maxHeight,
