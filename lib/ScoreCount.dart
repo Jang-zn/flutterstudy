@@ -53,12 +53,13 @@ class _ScoreCountHomeState extends State<ScoreCountHome> {
         ),
         body: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Row(
                 children: [
                   Text("종료 점수 15점"),
                   InkWell(
-                      child: Text("리셋"),
+                      child: Text("리셋",),
                       onTap: () {
                         setState(() {
                           scoreA = 0;
@@ -66,27 +67,32 @@ class _ScoreCountHomeState extends State<ScoreCountHome> {
                         });
                       })
                 ],
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
               ),
               Row(
                 children: [
                   Text(
                     "Score Board",
-                    textAlign: TextAlign.center,
+                    style : Theme.of(context).primaryTextTheme.headline5
                   )
                 ],
+                mainAxisAlignment: MainAxisAlignment.center,
               ),
               Row(children: [
                 Column(
                   children: [
-                    Text("$teamA"),
-                    Text("$scoreA")
+                    Text("$teamA",style : Theme.of(context).primaryTextTheme.headline5),
+                    Text("$scoreA",style : Theme.of(context).primaryTextTheme.headline5)
                   ],
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+
                 ),
                 Column(
                     children: [
-                      Text("$teamB"),
-                      Text("$scoreB")
-                    ]
+                      Text("$teamB",style : Theme.of(context).primaryTextTheme.headline5),
+                      Text("$scoreB",style : Theme.of(context).primaryTextTheme.headline5)
+                    ],
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                 )
               ],
               mainAxisAlignment: MainAxisAlignment.spaceAround,
