@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(basicApp());
 }
 
@@ -10,61 +10,75 @@ class basicApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title : "study",
-      theme : ThemeData(
+        title: "study",
+        theme: ThemeData(
           primarySwatch: Colors.green,
-      ),
-      home : BasicAppHome(
-        title : "study Basic Widget",
-      )
-    );
+        ),
+        home: BasicAppHome(
+          title: "study Basic Widget",
+        ));
   }
 }
 
 class BasicAppHome extends StatefulWidget {
   const BasicAppHome({Key? key, required this.title}) : super(key: key);
   final String title;
+
   @override
   _BasicAppHomeState createState() => _BasicAppHomeState();
 }
 
 class _BasicAppHomeState extends State<BasicAppHome> {
+  int _index=0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar : AppBar(
-        title : Text("title"),
+      appBar: AppBar(
+        title: Text("title"),
       ),
-      body : LayoutBuilder(
-          builder : (context, constraints){
-            return Container(
-              height : constraints.maxHeight,
-              width : constraints.maxWidth,
-              color : Colors.greenAccent,
-              child : Row(
+      body: LayoutBuilder(builder: (context, constraints) {
+        return Container(
+            height: constraints.maxHeight,
+            width: constraints.maxWidth,
+            color: Colors.greenAccent,
+            child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround, //세로배치
                 crossAxisAlignment: CrossAxisAlignment.center, //가로배치
-                children : <Widget>[
+                children: <Widget>[
                   Container(
-                    color : Colors.red,
-                    width : 50,
-                    height : 50,
+                    color: Colors.red,
+                    width: 50,
+                    height: 50,
                   ),
                   Container(
-                    color : Colors.yellow,
-                    width : 50,
-                    height : 50,
+                    color: Colors.yellow,
+                    width: 50,
+                    height: 50,
                   ),
                   Container(
-                    color : Colors.blue,
-                    width : 50,
-                    height : 50,
+                    color: Colors.blue,
+                    width: 50,
+                    height: 50,
                   ),
-                ]
-              )
-            );
-          }
-      )
+                ]));
+      }),
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
+        BottomNavigationBarItem(icon: Icon(Icons.calendar_today), label: "예약"),
+        BottomNavigationBarItem(icon: Icon(Icons.star), label : "즐겨찾기"),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label:"마이페이지")
+      ],
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
+        onTap: (idx){
+          setState(() {
+            _index = idx;
+            print(idx);
+          });
+        },
+        currentIndex : _index,
+      ),
     );
   }
 }
