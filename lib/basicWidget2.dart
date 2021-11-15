@@ -28,15 +28,27 @@ class BasicAppHome extends StatefulWidget {
   _BasicAppHomeState createState() => _BasicAppHomeState();
 }
 
+class EmptyAppBar extends StatelessWidget implements PreferredSizeWidget{
+  const EmptyAppBar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+
+  @override
+  Size get preferredSize => Size(0.0, 0.0);
+}
+
+
+
 class _BasicAppHomeState extends State<BasicAppHome> {
   int _index=0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("title"),
-      ),
+      appBar : EmptyAppBar(),
       body: LayoutBuilder(builder: (context, constraints) {
         return Container(
             height: constraints.maxHeight,
