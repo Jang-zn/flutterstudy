@@ -44,6 +44,7 @@ class EmptyAppBar extends StatelessWidget implements PreferredSizeWidget{
 
 class _BasicAppHomeState extends State<BasicAppHome> {
   int _index=0;
+  Color _color = Colors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -58,10 +59,16 @@ class _BasicAppHomeState extends State<BasicAppHome> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround, //세로배치
                 crossAxisAlignment: CrossAxisAlignment.center, //가로배치
                 children: <Widget>[
-                  Container(
-                    color: Colors.red,
+                  InkWell(child : Container(
+                    color: _color,
                     width: 50,
                     height: 50,
+                  ),
+                    onTap :(){
+                    setState(() {
+                      _color = Colors.black;
+                    });
+                    }
                   ),
                   Container(
                     color: Colors.yellow,
