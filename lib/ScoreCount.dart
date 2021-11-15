@@ -51,15 +51,14 @@ class _ScoreCountHomeState extends State<ScoreCountHome> {
         appBar: AppBar(
           title : Text(widget.title),
         ),
-        body: SafeArea(
-          child: Column(
+        body: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Row(
                 children: [
                   Text("종료 점수 15점"),
                   InkWell(
-                      child: Text("리셋",),
+                      child: Text("리셋",style : TextStyle(fontWeight: FontWeight.bold, color: Colors.red)),
                       onTap: () {
                         setState(() {
                           scoreA = 0;
@@ -151,7 +150,7 @@ class _ScoreCountHomeState extends State<ScoreCountHome> {
               ),
             ],
           ),
-        ));
+        );
   }
 }
 
